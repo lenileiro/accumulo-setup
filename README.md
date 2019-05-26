@@ -14,7 +14,7 @@ hadoop start
 ```
 ### Configure Zookeeper
 ``` bash
-sudo hadoop/install.sh
+sudo zookeeper/install.sh
 ```
 
 ### start Zookeeper
