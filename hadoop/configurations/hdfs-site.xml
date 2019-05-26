@@ -6,11 +6,15 @@
         <value>1</value>
     </property>
     <property>
+        <name>dfs.datanode.synconclose</name>
+        <value>true</value>
+    </property>
+    <property>
         <name>dfs.name.dir</name>
-        <value>file:///home/leiro/Desktop/hadoop/hdfs_storage/name</value>
+        <value>file:///opt/hadoop/hdfs_storage/name</value>
     </property>
     <property>
         <name>dfs.data.dir</name>
-        <value>file:///home/leiro/Desktop//hadoop/hdfs_storage/data</value>
+        <value>file:///opt/hadoop/hdfs_storage/data</value>
     </property>
 </configuration>

@@ -6,22 +6,30 @@ rm -rf /opt/hadoop-2.9.2
 wget -O /opt/hadoop-2.9.2.tar.gz https://archive.apache.org/dist/hadoop/core/hadoop-2.9.2/hadoop-2.9.2.tar.gz
 
 echo "Extracting"
-tar -xzf /opt/hadoop-2.9.2.tar.gz -C /home/leiro/Desktop
+tar -xzf /opt/hadoop-2.9.2.tar.gz -C /opt
 
 rm /opt/hadoop-2.9.2.tar.gz
-cp -r /opt/hadoop-2.9.2 /opt/hadoop
-
-chmod -R 0777 /home/leiro/Desktop/hadoop/
-chmod -R 0777 /home/leiro/Desktop/hadoop-2.9.2
-chmod -R 0777 /home/leiro/Desktop/hadoop-2.9.2.tar.gz
+ln -s /opt/hadoop-2.9.2 /opt/hadoop
 
 #set java path
 echo "set configurations"
 echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk'>>/opt/hadoop/etc/hadoop/hadoop-env.sh
-cat configurations/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
-cat configurations/hdfs-site.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
-cat configurations/mapred-site.xml > /opt/hadoop/etc/hadoop/mapred-site.xml
-cat configurations/yarn-site.xml > /opt/hadoop/etc/hadoop/yarn-site.xml
-cat configurations/.bash_profile.xml >> ~/.bash_profile
-source ~/.bash_profile
+cat hadoop/configurations/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
+cat hadoop/configurations/hdfs-site.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
+cat hadoop/configurations/mapred-site.xml > /opt/hadoop/etc/hadoop/mapred-site.xml
+cat hadoop/configurations/yarn-site.xml > /opt/hadoop/etc/hadoop/yarn-site.xml
+
+mkdir -p /opt/hadoop/input
+mkdir -p /var/log/hadoop
+mkdir -p /var/log/hadoop-yarn/apps
+rm -rf /opt/hadoop-2.9.2/logs
+ln -s /var/log/hadoop /opt/hadoop-2.9.2/logs
+
+chmod +x /opt/hadoop/etc/hadoop/*-env.sh
+
+cp /opt/hadoop/etc/hadoop/*.xml /opt/hadoop/input
+
+chmod -R 0777 /opt/hadoop/
+chmod -R 0777 /opt/hadoop-2.9.2/
+chmod -R 0777 /opt/hadoop-2.9.2/logs
 echo "setup done"
