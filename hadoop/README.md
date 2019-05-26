@@ -23,7 +23,7 @@ Use nano to edit your shell environment file, .bashrc.
 Add JAVA_HOME as an environment variable at the end of the file.
 
 ```
-    export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 ```
 
 ## Step 2 — Install SSH
@@ -104,7 +104,6 @@ At the time of writing, the latest stable version of Hadoop is 2.9.2. Download i
 ```
 
 
-
 Use the tar command to extract the contents of hadoop-2.9.2.tar.gz.
 
 ```
@@ -178,11 +177,11 @@ The following properties need to be added to this file:
         </property>
         <property>
             <name>dfs.name.dir</name>
-            <value>hdfs_storage/name</value>
+            <value>file:///opt/hadoop/hdfs_storage/name</value>
         </property>
         <property>
             <name>dfs.data.dir</name>
-            <value>hdfs_storage/data</value>
+            <value>file:///opt/hadoop/hdfs_storage/data</value>
         </property>
     </configuration>
 ```
@@ -278,13 +277,3 @@ Restart Hadoop using start-dfs.sh
 ```
     sbin/start-dfs.sh
 ```
-
-
-export HADOOP_PREFIX=/opt/hadoop
-export HADOOP_COMMON_HOME=/opt/hadoop
-export HADOOP_HDFS_HOME=/opt/hadoop
-export HADOOP_MAPRED_HOME=/opt/hadoop
-export HADOOP_YARN_HOME=/opt/hadoop
-export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
-export YARN_CONF_DIR=/opt/hadoop/etc/hadoop
-export PATH=$PATH:/opt/hadoop/bin

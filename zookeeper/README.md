@@ -40,6 +40,7 @@ Configuration of ZooKeeper is now complete. Start ZooKeeper by typing in:
 ```
 
 You should see output that looks like this:
+
 ```
 JMX enabled by default
 Using config: ~/Installs/zookeeper-3.4.14/bin/../conf/zoo.cfg

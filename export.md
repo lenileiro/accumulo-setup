@@ -12,8 +12,8 @@ if [ -z "$1" ]
 	 then
 		 echo "-No Parameter passed [start | stop ].-"
 	else
-		/opt/hadoop-2.9.2/sbin/$1-yarn.sh
-		/opt/hadoop-2.9.2/sbin/$1-dfs.sh
+		/opt/hadoop/sbin/$1-yarn.sh
+		/opt/hadoop/sbin/$1-dfs.sh
    fi
 }
 ```
